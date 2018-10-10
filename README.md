@@ -5,9 +5,10 @@ Complete description of this package and its successful application to an indust
 *****************************************************************************
 Tree Folder Description:
 There are 2 main folders in the package: the code (tf4slurm) and the examples (TUTORIALS).
+************************************************************************************************
 
-**************************************************************************************************
 tf4slurm
+
 The tf_for_slurm folder contains the Python Package mandatory for using distributed Training
 capabilities of TensorFlow in a Slurm queue system. There are two different modules in the package: ServerDictionary and DistributedTFQueueHook.
 
