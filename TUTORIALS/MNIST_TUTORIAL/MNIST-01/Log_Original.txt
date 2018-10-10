@@ -1,0 +1,21 @@
+Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
+Extracting ./MNIST_DATA/train-images-idx3-ubyte.gz
+Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
+Extracting ./MNIST_DATA/train-labels-idx1-ubyte.gz
+Successfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.
+Extracting ./MNIST_DATA/t10k-images-idx3-ubyte.gz
+Successfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.
+Extracting ./MNIST_DATA/t10k-labels-idx1-ubyte.gz
+Saving graph to: ./SINGLE_ORIGINAL
+step 0, training accuracy 0.14
+step 100, training accuracy 0.9
+step 200, training accuracy 0.92
+step 300, training accuracy 0.9
+step 400, training accuracy 0.98
+step 500, training accuracy 0.86
+step 600, training accuracy 0.94
+step 700, training accuracy 0.96
+step 800, training accuracy 0.96
+step 900, training accuracy 0.94
+test accuracy 0.9661
+Training Time: 168.085278034
