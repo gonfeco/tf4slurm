@@ -1,23 +1,20 @@
-# vim: ts=2
+# LaunchServer_with_HOOKS
 
-##################################################################################################################
-            DISTRIBUTED TENSORFLOW SERVER WITH HOOK FOR CLOSING PS SERVER GRACEFULLY.
-##################################################################################################################
-In this example a Distributed TensorFlow server is created and executed using the
-Yaroslav Bulatov solution to bringing down the parameter server.
-This example use the 2 modules of the tf_for_slurm package:
-    *ServerDictionary
-    *DistributedTFQueueHook
-This example has two scripts:
-    *LaunchTFServer_Hook.py: this python script creates and executes a Distributed TF Server.
-    *BASH_LaunchTFServer_WithHOOK.sh: bash script used for submitting pyhton script to FT2 
+In this example a Distributed TensorFlow server is created and executed using the Yaroslav Bulatov solution to bringing down the parameter server. This example use the 2 modules of the tf_for_slurm package: ServerDictionary and DistributedTFQueueHook
+This example has three scripts:
+
+	LaunchTFServer_Hook.py: this python script creates and executes a Distributed TF Server.
+	SleepExample.py: python script that create graph and run a TF session.
+	BASH_LaunchTFServer_WithHOOK.sh: bash script used for submitting pyhton script to FT2.
 
 **************************************************************************************************************************
-	LaunchTFServer_Hook.py
-**************************************************************************************************************************
-	This script creates a dsitributed TF server using ServerDictionary module. Important Lines:
-		*line 8: import ServerDictionary from tf_for_slurm package.
-		*line 9: import DistributedTFQueueHook from tf_for_slurm package.
+
+LaunchTFServer_Hook.py
+
+This script creates a dsitributed TF server using ServerDictionary module. Important Lines:
+
+	-line 8: import ServerDictionary from tf_for_slurm package.
+	-line 9: import DistributedTFQueueHook from tf_for_slurm package.
 		*lines 26-30: Create ListOfTFTasks for the Distributed TF server is created:  
 			- It is MANDATORY that: size(ListOfTFTasks)=Number of Tasks.
 			- Each element is a string that could be "ps" or "worker". 
