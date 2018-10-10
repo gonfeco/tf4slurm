@@ -5,6 +5,7 @@ In this example a Distributed TensorFlow (TF) server is created and executed in 
 	LaunchTFServer_NoHOOKS.py: this python script creates and executes a Distributed TF Server.
 	BASH_LaunchTFServer_NoHOOKS.sh: bash script used for submitting pyhton script to FT2.
 	
+This script ONLY creates and executes a TF distrbuted Server. There is no operation neither training. Users can add their TF code to this script in order to take advantage of Distributed Tf training in their codes in an easy way.
 **************************************************************************************************************************
 
 LaunchTFServer_NoHOOKS
@@ -37,8 +38,11 @@ This script creates a dsitributed TF server using ServerDictionary module. Impor
 			+task_index: index of local machine in the list of "ps" or "worker" (depending on job_type) in the ServerDictionary.
 	-lines 34-41: Creates the cluster and the Server for running TF in distributed way.
 Finally each local machine could be a "ps" or a "worker" (this is given by task_type):
-	
-	ps (lines 44-45): if the machine is a "ps" then a parameter server is created. In this case the join method of the server is invoked. This method keeps the Distributed server TF running  forever until user or queue system kills it
+
+	-ps (lines 44-45): if the machine is a "ps" then a parameter server is created. 
+	In this case the join method of the server is invoked. This method keeps the Distributed server TF running
+	forever until user or queue system kills it
+	-workers (lines 46-47): Here users can add their TF code. Users needs to use tf.device with tf.train.replica_device_setter in order to automatically distribute bias, weigths and operations. A more complete example is provided in LaunchServer_with_HOOKS folder or in MNIST folder.
 	
 **************************************************************************************************************************
 
