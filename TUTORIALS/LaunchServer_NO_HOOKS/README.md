@@ -25,8 +25,7 @@ This script creates a dsitributed TF server using ServerDictionary module. Impor
 				2.3- N NODES, M TASKS/PERNODE: Number  of total tasks=N*M. In this case the M first elements of the list will be related with first node.Next M wiht the second one node and so on. So depending on the element the user puts the "ps" the "ps" goes to one node or to other. If user wants more than one "ps" user can distributed the "ps"s between the different nodes by carefully asigning "ps" in the ListOfTFTasks.
 				EXAMPLE: Number of Nodes=2. Task/pernode=4. Number of Total Tasks: 2*4=8. So If user wants PS=2:
 				EXAMPLE-1: ['ps','ps', 'worker', 'worker', 'worker', 'worker', 'worker', 'worker'] -> The PSs will be in the first Node!!
-				EXAMPLE-2: ['ps', 'worker', 'worker', 'worker','ps', 'worker', 'worker', 'worker'] 
-								-> One PS in first node other ps in second node.
+				EXAMPLE-2: ['ps', 'worker', 'worker', 'worker','ps', 'worker', 'worker', 'worker'] -> One PS in first node other ps in second node.
 	-lines 30-33: This is the call to the GetServerDictionary() function from the ServerDictionary module.Here each task gets:
 		*ServerDictionary: python dictionary to create the Distributed TF server dictionary.
 		*(task_type,task_index): identification of the machine in the ServerDictionary:
