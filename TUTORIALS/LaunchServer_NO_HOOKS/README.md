@@ -43,11 +43,11 @@ BASH_LaunchTFServer_NoHOOKs
 
 This script submits the pyhton script to CESGA Finis Terrae II Slurm system. User can configure what modules used for the job by giving arguments to the bash script. Following posible arguments are shown:
 
-	sbatch BASH_LaunchTFServer_WithHOOK.sh -> use TensorFlow v1.7.0 and Python 2.7.14
-	sbatch BASH_LaunchTFServer_WithHOOK.sh 10 -> use TensorFlow v1.0.0
-	sbatch BASH_LaunchTFServer_WithHOOK.sh 12 -> use TensorFlow v1.2.0
-	sbatch BASH_LaunchTFServer_WithHOOK.sh 13 -> use TensorFlow v1.3.0
-	sbatch BASH_LaunchTFServer_WithHOOK.sh 17 -> use TensorFlow v1.7.0 and Python 2.7.14
-	sbatch BASH_LaunchTFServer_WithHOOK.sh 17 2 -> use TensorFlow v1.7.0 and Python 2.7.14
-	sbatch BASH_LaunchTFServer_WithHOOK.sh 17 3 -> use TensorFlow v1.7.0 and Python 3.6.5
+	sbatch BASH_LaunchTFServer_NoHOOKS.sh -> use TensorFlow v1.7.0 and Python 2.7.14
+	sbatch BASH_LaunchTFServer_NoHOOKS.sh 10 -> use TensorFlow v1.0.0
+	sbatch BASH_LaunchTFServer_NoHOOKS.sh 12 -> use TensorFlow v1.2.0
+	sbatch BASH_LaunchTFServer_NoHOOKS.sh 13 -> use TensorFlow v1.3.0
+	sbatch BASH_LaunchTFServer_NoHOOKS.sh 17 -> use TensorFlow v1.7.0 and Python 2.7.14
+	sbatch BASH_LaunchTFServer_NoHOOKS.sh 17 2 -> use TensorFlow v1.7.0 and Python 2.7.14
+	sbatch BASH_LaunchTFServer_NoHOOKS.sh 17 3 -> use TensorFlow v1.7.0 and Python 3.6.5
 **************************************************************************************************************************
