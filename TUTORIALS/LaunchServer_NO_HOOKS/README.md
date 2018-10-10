@@ -22,7 +22,11 @@ This script creates a dsitributed TF server using ServerDictionary module. Impor
 			2.-The three posible cases for launching a distributed training are:
 				2.1- ONE NODE, N TASKS. Here the order of the elements of the list is not important.
 				2.2- N NODES, 1 TASK/PERNODE. This case is identical to the previous one. 
-				2.3- N NODES, M TASKS/PERNODE: Number  of total tasks=N*M. In this case the M first elements of the list will be related with first node.Next M wiht the second one node and so on. So depending on the element the user puts the "ps" the "ps" goes to one node or to other. If user wants more than one "ps" user can distributed the "ps"s between the different nodes by carefully asigning "ps" in the ListOfTFTasks.
+				2.3- N NODES, M TASKS/PERNODE: Number  of total tasks=N*M. 
+				In this case the M first elements of the list will be related with first node.
+				Next M wiht the second one node and so on. So depending on the element the user puts the "ps"
+				the "ps" goes to one node or to other. If user wants more than one "ps" user can distributed
+				the "ps"s between the different nodes by carefully asigning "ps" in the ListOfTFTasks.
 				EXAMPLE: Number of Nodes=2. Task/pernode=4. Number of Total Tasks: 2*4=8. So If user wants PS=2:
 				EXAMPLE-1: ['ps','ps', 'worker', 'worker', 'worker', 'worker', 'worker', 'worker'] -> The PSs will be in the first Node!!
 				EXAMPLE-2: ['ps', 'worker', 'worker', 'worker','ps', 'worker', 'worker', 'worker'] -> One PS in first node other ps in second node.
