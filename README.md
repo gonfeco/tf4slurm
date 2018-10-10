@@ -48,4 +48,8 @@ LaunchServer_with_HOOK.
 
 This example launches the Distributed TF server with the Yaroslav Bulatov solution. Both package modules (ServerDictionary and DistributedTFQueueHook) are needed. The example creates the server and the when the workers finished their job the "ps" server is closed and the job will be finished. Folder contains the python script and the bash script for submitting it to the queue system. Additionally, folder contains a README_WithHooks.txt with a detailed explanation of the scripts
 
+MNIST_TUTORIAL
+
+This Folder contains 4 different sub-folders with examples for deployment of a distributed Training of a Deep Convolutional Network using the MNIST dataset based on an example from TF webpage: mnist_deep.py file. Please follow the README.txt of the MNIST_TUTORIAL folder 
+
 
