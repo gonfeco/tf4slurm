@@ -33,4 +33,19 @@ This module defines the clase QueueManagementHook (based on tf.train.SessionRunH
 		https://gist.github.com/yaroslavvb/ea1b1bae0a75c4aae593df7eca72d9ca).
 		
 This solution creates a TF Queues on all the parameter servers ("ps") and the "ps" session try to dequeue them. Meanwhile the Queue is empty this operation blocks the "ps" server. In the "worker" the Hook of the script is created and when the training operation is finished the hook fills the "ps" queues. When "ps" queue are filled the dequeue operation can be finished and the "ps" can be closed gracefully.
+
 **************************************************************************************************
+
+TUTORIALS 
+
+Several Tutorials that show how to use the tf_for_slurm package are provided in TUTORIALS folder. Under this path there are 3 subfolders: LaunchServer_NO_HOOKS, LaunchServer_with_HOOKS and MNIST_TUTORIAL.
+
+LaunchServer_NO_HOOKS.
+
+This example launches a typical Distributed TF server. Only uses the: ServerDictionary module from tf4slurm package. This example creates the TF server with "ps" and the "workers". The "ps" server will run forever until user o queue system kills the job. Folder contains the python script and the bash script for submitting it to CESGA Finis Terrae II Slurm queue system.  Additionally, folder contains a README_NoHooks.txt with a detailed explanation of the scripts.
+
+LaunchServer_with_HOOK.
+
+This example launches the Distributed TF server with the Yaroslav Bulatov solution. Both package modules (ServerDictionary and DistributedTFQueueHook) are needed. The example creates the server and the when the workers finished their job the "ps" server is closed and the job will be finished. Folder contains the python script and the bash script for submitting it to the queue system. Additionally, folder contains a README_WithHooks.txt with a detailed explanation of the scripts
+
+
