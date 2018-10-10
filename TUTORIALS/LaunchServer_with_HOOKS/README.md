@@ -70,7 +70,7 @@ SleepExample.py
 **************************************************************************************************************************
 BASH_LaunchTFServer_WithHOOK
 
-This script submits the pyhton script to FT2. User can configure what modules used for the job by giving arguments to the bash script. Following posible arguments are shown: 
+This script submits the pyhton script to CESGA Finis Terrae II Slurm system. User can configure what modules used for the job by giving arguments to the bash script. Following posible arguments are shown: 
 
 	sbatch BASH_LaunchTFServer_WithHOOK.sh -> use TensorFlow v1.7.0 and Python 2.7.14
 	sbatch BASH_LaunchTFServer_WithHOOK.sh 10 -> use TensorFlow v1.0.0
