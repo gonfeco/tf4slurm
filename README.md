@@ -10,6 +10,7 @@ There are 2 main folders in the package: the code (tf4slurm) and the examples (T
 tf4slurm
 The tf_for_slurm folder contains the Python Package mandatory for using distributed Training
 capabilities of TensorFlow in a Slurm queue system. There are two different modules in the package: ServerDictionary and DistributedTFQueueHook.
+
 ServerDictionary
 ****************
 All the basic functions to build the ServerDictionary for a Distributed TF Server are provided. When a Distributed TF training is required all the machines involved in the training need to load the "GetServerDictionary()" function of this script. 
@@ -20,6 +21,7 @@ The ouputs of the function are:
   DictionaryServer: python dictionary with the server configuration for the TF server: {"ps": [List of Addresses for "ps"],         "worker": [List of Addresses for "worker"]}. Same for all machines.
   task_type: string: "ps" or "worker". Depends of the machine.
   task_index: integer. Depends of the machine. Is the element of the machine in the list of the DictionaryServer depending of       the task_type.
+
 DistributedTFQueueHook
 **********************
 This module defines the clase QueueManagementHook (based on tf.train.SessionRunHook) and the functions needed for closing gracefully the parameter server. This solution was based on the solution by Yaroslav Bulatov. (https://gist.github.com/yaroslavvb/ea1b1bae0a75c4aae593df7eca72d9ca).
