@@ -10,7 +10,7 @@ In order to get the code as clear (and clean) as posiblle following scritps were
 
 Model_For_mnist_deep.py
 
-########################################################################################
+*************************************************************************************************
 
 Here we copy the Deep Convolutional model from mnist_deep_modification.py. 
 	
@@ -18,7 +18,7 @@ Here we copy the Deep Convolutional model from mnist_deep_modification.py.
 
 DeepMNIST_MonitoredSession.py
 
-########################################################################################
+*************************************************************************************************
 	
 Here we train the model (that it is stored in the Model_For_mnist_deep.py script.
 Important changes are:
@@ -49,7 +49,7 @@ Changes are:
 
 BASH_MNIST_DEEP_Monitored.sh.
 
-########################################################################################
+*************************************************************************************************
 
 This a bash script to submit training to the FT2 queue system.
 
