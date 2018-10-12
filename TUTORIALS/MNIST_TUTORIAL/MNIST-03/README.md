@@ -9,7 +9,7 @@ Here we develop distributed training based on the scripts from MNIST-02. In orde
 
 LaunchTFServerWithHooks.py
 
-#############################################################################################
+*************************************************************************************************
 
 This scripts uses ServerDictionary and DistributedTFQueueHook modules from the tf_for_slurm package for creating the Distributed TensorFlow server (they are imported in lines 25 and 26). Distributed TF server is mandatory for deploy a distributed Training. User can provided to the script (using argument parser):
 
@@ -66,7 +66,8 @@ It is important to highlihgt here that this script can be used for deploy any tr
 
 DeepMNIST_DistributedTRAIN.py.
 
-#############################################################################################
+*************************************************************************************************
+
 This script implements the Distributed Training. In fact with the MNIST-02/DeepMNIST_MonitoredSession.py script we have all that we need the Distributed Training and only some minor modifications are needed. The main function is DistributedTrain (that is called by the last line of LaunchTFServerWithHooks.py). Important change with respect to the original file:
 		
 	- Line 37: here we stablish what worker task will be the chief (is_chief=(task_index == 0))
@@ -98,7 +99,7 @@ AND THAT'S ALL!!! NOW YOU CAN GO TO DISTRIBUTED TF!!!!
 
 BASH_Distributed_MNIST.sh
 
-#############################################################################################
+*************************************************************************************************
 
 Bash script (BASH_Distributed_MNIST.sh) to submit training is provided.
 User can easily make changes in bash script in order to modify before FLAGS.
@@ -108,7 +109,7 @@ User should be aware about the RAM memory that is going to be assigned to each t
 
 Hooks.py
 
-#############################################################################################
+*************************************************************************************************
 
 Here we took the Hooks.py scritp from MNIST-02 and added following Hooks to increase functionalities:
 
