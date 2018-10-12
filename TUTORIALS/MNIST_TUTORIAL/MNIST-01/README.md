@@ -1,8 +1,5 @@
-# vim: ts=2
+# Original TensorFlow for MNIST with Deep Networks running
 
-########################################################################################
-Original TensorFlow for MNIST with Deep Networks running
-########################################################################################
 Here we begin the adaptation of the TF MNIST deep code for running in parallel.
 Steps:
 1.-Code was downloaded from (TensorFlow v1.3):
