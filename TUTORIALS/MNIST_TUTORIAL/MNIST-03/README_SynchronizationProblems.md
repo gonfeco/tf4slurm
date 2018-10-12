@@ -1,18 +1,15 @@
-# vim: ts=2
+# PROBLEMS WITH WORKER SYNCHRONIZATION
 
-##############################################################################################
-PROBLEMS WITH WORKER SYNCHRONIZATION
-##############################################################################################
-	In MNIST-03 an Asynchronous Distributed training was implemented.
-	Some problems raise about the way that the training finished that user should be aware.
+In MNIST-03 an Asynchronous Distributed training was implemented.Some problems raise about the way that the training finished that user should be aware.
+
 	In line 71 of DeepMNIST_DistributedTRAIN.py we use the StopAtStepHook for stopping the training loop.
 	User can pass to the hook two different inputs (that are mutually exclusive):
 		- num_steps
-		- last_step
+		- last_step	
 	TensorFlow by default uses num_steps but our script uses last_step instead. 
-	A bad behaviour when uses num_steps in the StopAtStepHook was detected:
-		Usually one of the workers (in general the chief worker) is online earlier than the others.
-		In asynchronous training this fastest worker begins to train without waiting for the other workers.
+	
+A bad behaviour when uses num_steps in the StopAtStepHook was detected:
+Usually one of the workers (in general the chief worker) is online earlier than the others. In asynchronous training this fastest worker begins to train without waiting for the other workers.
 		The firsts steps of training will be done only by this active worker.
 		While other workers were online their continue the training from the global_step they see.
 			EXAMPLE: slower worker can be online at global_step=200 and it continue training from this step.
