@@ -34,12 +34,18 @@ Important changes are:
 Minor changes and increasing functionality: We have removed from the original training loop the "if statement" used for monitoring training. Now we will monitor the training usign Customized TensorFlow Hooks (defined in Hooks.py).Instead of printing the monitorization in screen we will use the TensorBoard.These Hooks allow user to "hook" code into the TF session to several purpouses like metric evaluation. These Hooks are very useful in order to make validation when used distributed TF. Hooks allow code reusing.
 Changes are:
 
-	- Lines 69-72:Here we define the Summary operations we want to use to monitor the Training.This summary operations will be the CrossEntropy and the Accuracy.
-	- Lines 76-85: Here we select a sub set of the Training Dataset for monitor purpouses.This is done to avoid long validation times. Monitor will be done always on the same data. In original file step batch data was used for monitor (different data used for each monitor step). 
-	- Lines 88-90: Here we call one of the customized hooks (NewSummarySaverHook) for monitor training. We pass to the Hook the Summary operation (see 4.1) and the data used for summary. 
+	- Lines 69-72:Here we define the Summary operations we want to use to monitor the Training.
+		This summary operations will be the CrossEntropy and the Accuracy.
+	- Lines 76-85: Here we select a sub set of the Training Dataset for monitor purpouses.
+		This is done to avoid long validation times. Monitor will be done always on the same data. 
+		In original file step batch data was used for monitor (different data used for each monitor step). 
+	- Lines 88-90: Here we call one of the customized hooks (NewSummarySaverHook) for monitor training. 
+		We pass to the Hook the Summary operation (see 4.1) and the data used for summary. 
 	- Lines 93-95: There is a commented Hook for performing monitoring on Testing Data.
-	- Line 97: Here we call other customized Hook (FinalSummaryHook).This Hook print in screen results of Accuracy and Cross Entropy in the final training step usign the Testing Data.  
-	- Line 92: Other similar Hook for usign de complete Training Dataset is commented. User can uncomment before Hooks in order to get more monitoring functionalities. 
+	- Line 97: Here we call other customized Hook (FinalSummaryHook).
+		This Hook print in screen results of Accuracy and Cross Entropy in the final training step usign the Testing Data.  
+	- Line 92: Other similar Hook for usign de complete Training Dataset is commented. 
+		User can uncomment before Hooks in order to get more monitoring functionalities. 
 
 BASH_MNIST_DEEP_Monitored.sh.
 
