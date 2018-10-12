@@ -1,13 +1,12 @@
-# vim: ts=2
-##################################################################################################################
-TUTORIAL: Deployment of Distributed Training of COnvolutional Network Training on MNIST database in FT2.
-##################################################################################################################
+# TUTORIAL: Deployment of Distributed Training of COnvolutional Network Training on MNIST database in FT2.
+
 Here we developed an example of deployment of Ditributed TF using the TF webpage example: mnist_deep.py file.
 We will do this in three steps in order to show user how to deploy distributed training in FT2. 
 In this folder there are three sub-folders (MNIST-01, MNIST-02 and MNIST-3) that contains the different scripts. 
 Each folder has its own Readme to explain all the major changes done in the code. The order of the folders is:
 
-MNIST-01:
+MNIST-01
+
 *************************************************************************************************
 Here we take the original TF Deep MNIST code from webpage and implement some minor modifications. 
 Additionally a BASH script to submitt to the FT2 was created. 
@@ -16,6 +15,7 @@ If user use the script by default the Deep NN will be trained with the following
 The results of the training will be stored in: Log_Original.txt and Training time should be near: 166.2 s.
 
 MNIST-02:
+
 *************************************************************************************************
 Here we adapted the code from MNIST-01 to the use of monitoredTrainingSessions. Here we introduce too the TF Hooks. 
 We split the code in two parts: a file where the Deep NN is created and a second file where the network is trained. 
@@ -27,6 +27,7 @@ Here the trainign time is bigger than in MNIST-01 but we have more functionaliti
 Additionally important steps were done in order to achieve a future distributed Training deployment...
 
 MNIST-03:
+
 *************************************************************************************************
 Here we adapt the code from MNIST-02 to final deployment in distributed. Again we split the code again. 
 2 scripts were generated: one for created a Distributed TF server that calls to a second script
