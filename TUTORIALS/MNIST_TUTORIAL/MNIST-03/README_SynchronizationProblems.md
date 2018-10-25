@@ -22,7 +22,10 @@ If user want to see this bad behaviour can use the PrintStepHook from Hooks.py a
 
 There are two ways of avoid this behaviour:
 		
-	1.- Use last_step in StopAtStepHook:If global_step is higher than last_step then all the workers finished their trainings. This method works but could be a problem if user wants that all the workers made the same training iterations (for example if each worker deals with one part of the dataset).
+	1.- Use last_step in StopAtStepHook.
+		+ If global_step is higher than last_step then all the workers finished their trainings. 
+		+ This method works but could be a problem if user wants that all the workers made the same 
+		training iterations (for example if each worker deals with one part of the dataset).
 	
 	2.- Create a synchronization Barrier at the beggining of the training that waits until all the workers are online. In this case all the workers begins the training at the same time and both inputs of StopAtStepHook can be used.
 
