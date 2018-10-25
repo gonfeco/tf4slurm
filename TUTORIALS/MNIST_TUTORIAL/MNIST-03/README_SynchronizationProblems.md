@@ -1,12 +1,13 @@
 # PROBLEMS WITH WORKER SYNCHRONIZATION
 
-In MNIST-03 an Asynchronous Distributed training was implemented.Some problems raise about the way that the training finished that user should be aware.
+In MNIST-03 an Asynchronous Distributed training was implemented.Some problems raise about the way that the training finished that user should be aware:
 
-	In line 71 of DeepMNIST_DistributedTRAIN.py we use the StopAtStepHook for stopping the training loop.
-	User can pass to the hook two different inputs (that are mutually exclusive):
-		- num_steps
-		- last_step	
-	TensorFlow by default uses num_steps but our script uses last_step instead. 
+In line 71 of DeepMNIST_DistributedTRAIN.py we use the StopAtStepHook for stopping the training loop. User can pass to the hook two different inputs (that are mutually exclusive):
+
+	- num_steps
+	- last_step	
+
+TensorFlow by default uses num_steps but our script uses last_step instead. 
 	
 A bad behaviour when uses num_steps in the StopAtStepHook was detected:
 
