@@ -1,6 +1,3 @@
-# vim: ts=2
-
-##############################################################################################
 Train Deep Convolutional Network on MNIST using MONITORED TRAINING SESSION 
 in SYNCHRONOUS DISTRIBUTED WAY
 #############################################################################################
