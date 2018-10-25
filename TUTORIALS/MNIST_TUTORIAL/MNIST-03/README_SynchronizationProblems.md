@@ -7,20 +7,17 @@ In line 71 of DeepMNIST_DistributedTRAIN.py we use the StopAtStepHook for stoppi
 	- num_steps
 	- last_step	
 
-TensorFlow by default uses num_steps but our script uses last_step instead. 
-	
-A bad behaviour when uses num_steps in the StopAtStepHook was detected:
+TensorFlow by default uses num_steps but our script uses last_step instead. A bad behaviour when uses num_steps in the StopAtStepHook was detected:
 
 Usually one of the workers (in general the chief worker) is online earlier than the others. In asynchronous training this fastest worker begins to train without waiting for the other workers.The firsts steps of training will be done only by this active worker.While other workers were online their continue the training from the global_step they see.
 
-EXAMPLE: 
+	EXAMPLE: 
 	slower worker can be online at global_step=200 and it continue training from this step.
+	If num_steps is used in StopAtStepHook: following behaviour raises:
+		*Faster worker: when global_step is higher than num_steps it stop its training.
+		*Other workers: when global_step is higher than num_steps they continue the training.
+		*If slower worker was online in global_step=200 it finished the training at num_steps+200.
 
-If num_steps is used in StopAtStepHook: following behaviour raises:
-
-	Faster worker: when global_step is higher than num_steps it stop its training.
-	Other workers: when global_step is higher than num_steps they continue the training.
-	EXAMPLE: If slower worker was online in global_step=200 it finished the training at num_steps+200.
 There are two ways of avoid this behaviour:
 		
 	1.- Use last_step in StopAtStepHook:
