@@ -22,8 +22,8 @@ import time
 
 import tensorflow as tf
 sys.path.append("../../")
-import tf_for_slurm.ServerDictionary as ServerDictionary
-import tf_for_slurm.DistributedTFQueueHook as QueueHook
+import tf4slurm.ServerDictionary as ServerDictionary
+import tf4slurm.DistributedTFQueueHook as QueueHook
 import DeepMNIST_DistributedTRAIN_Sync as TRAIN
 from datetime import datetime
 
