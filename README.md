@@ -4,11 +4,13 @@ This Python Package was initially developed in Centro de Supercomputación de Ga
 Complete description of this package and its successful application to an industrial case is provide in correspondent CESGA technical report: “Integrating Neural Network Parallel Training using Tensorflow with SLURM” (https://www.cesga.es/es/biblioteca/downloadAsset/id/803)
 *****************************************************************************
 Tree Folder Description:
-There are 4 main folders in the package: 
+There are 4 main folders in the package:
+
 	1.-tf4slurm
 	2.-LaunchServer_NO_HOOKS
 	3.-LaunchServer_with_HOOKS
 	4.-MNIST_TUTORIAL
+	
 ************************************************************************************************
 
 tf4slurm
