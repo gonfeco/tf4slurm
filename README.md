@@ -4,7 +4,11 @@ This Python Package was initially developed in Centro de Supercomputación de Ga
 Complete description of this package and its successful application to an industrial case is provide in correspondent CESGA technical report: “Integrating Neural Network Parallel Training using Tensorflow with SLURM” (https://www.cesga.es/es/biblioteca/downloadAsset/id/803)
 *****************************************************************************
 Tree Folder Description:
-There are 2 main folders in the package: the code (tf4slurm) and the examples (TUTORIALS).
+There are 4 main folders in the package: 
+	1.-tf4slurm
+	2.-LaunchServer_NO_HOOKS
+	3.-LaunchServer_with_HOOKS
+	4.-MNIST_TUTORIAL
 ************************************************************************************************
 
 tf4slurm
@@ -34,19 +38,20 @@ This module defines the clase QueueManagementHook (based on tf.train.SessionRunH
 		
 This solution creates a TF Queues on all the parameter servers ("ps") and the "ps" session try to dequeue them. Meanwhile the Queue is empty this operation blocks the "ps" server. In the "worker" the Hook of the script is created and when the training operation is finished the hook fills the "ps" queues. When "ps" queue are filled the dequeue operation can be finished and the "ps" can be closed gracefully.
 
+Additionally 2 more bash scripts are included that are used by the submitting scripts (see LaunchServer_NO_HOOKS and LaunchServer_NO_HOOKS) to configure the modules into the FT2:
+	*ModulesForRedHat6.7.sh
+	*ModulesForRedHat7.5.sh
+
 **************************************************************************************************
-
-TUTORIALS 
-
-Several Tutorials that show how to use the tf_for_slurm package are provided in TUTORIALS folder. Under this path there are 3 subfolders: LaunchServer_NO_HOOKS, LaunchServer_with_HOOKS and MNIST_TUTORIAL.
 
 LaunchServer_NO_HOOKS.
 
-This example launches a typical Distributed TF server. Only uses the: ServerDictionary module from tf4slurm package. This example creates the TF server with "ps" and the "workers". The "ps" server will run forever until user o queue system kills the job. Folder contains the python script and the bash script for submitting it to CESGA Finis Terrae II Slurm queue system.  Additionally, folder contains a README_NoHooks.txt with a detailed explanation of the scripts.
+This folder contains all the scripts (python and bash scripts) to submit a typical Distributed TF server to FT2. Only uses the: ServerDictionary module from tf4slurm package. This example creates the TF server with "ps" and the "workers". The "ps" server will run forever until user o queue system kills the job. Folder contains a README with a detailed explanation of the scripts.
 
 LaunchServer_with_HOOK.
 
-This example launches the Distributed TF server with the Yaroslav Bulatov solution. Both package modules (ServerDictionary and DistributedTFQueueHook) are needed. The example creates the server and the when the workers finished their job the "ps" server is closed and the job will be finished. Folder contains the python script and the bash script for submitting it to the queue system. Additionally, folder contains a README_WithHooks.txt with a detailed explanation of the scripts
+This folder contains all the scripts (python and bash scriprs) to submit the Distributed TF server with the Yaroslav Bulatov solution to FT2. Both package modules (ServerDictionary and DistributedTFQueueHook) are needed. The example creates the server and the when the workers finished their job the "ps" server is closed and the job will be finished. Folder contains a README with a detailed explanation of the scripts
+
 
 MNIST_TUTORIAL
 
