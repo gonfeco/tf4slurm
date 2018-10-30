@@ -137,6 +137,7 @@ def GetServerDictionary(ListOfTFTasks,InfinyBand=True):
 		TypeOfTask: string.It can be: 'ps' or 'worker' depending of the type of TF task of the local machine.
 		TypeOfTaskIndex:integer.Specify the index of the local machine in the Network Addresses List of its correspondent task.
 	"""
+	print("I am in Branch Version!!!")
 	#Test Number of Tasks
 	TestNumberOfTasks(ListOfTFTasks)
 	#Get List with Nodes IP

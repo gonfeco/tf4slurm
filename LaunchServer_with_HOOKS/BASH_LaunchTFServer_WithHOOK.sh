@@ -25,19 +25,26 @@
 # sbatch BASH_LaunchTFServer_WithHOOK.sh 17 3 -> use TensorFlow v1.7.0 and Python 3.6.5
 ##############################################################################
 
-
 TENSORFLOW=$1
+echo "TENSORFLOW: "$TENSORFLOW
 PYTHON=$2
+echo "PYTHON: "$PYTHON 
 REDHAT=$(lsb_release -a | sed -n 's/Release:\t//p')
 echo "REDHAT: "$REDHAT
 
+# Limpio modulos
+module purge
+
 if [ $REDHAT = "6.7" ]
 then
-	bash ../tf4slurm/ModulesForRedHat6.7.sh
+	MODULES=$(bash ../tf4slurm/ModulesForRedHat6.7.sh $TENSORFLOW $PYTHON)
 
 else
-	bash ../tf4slurm/ModulesForRedHat7.5.sh 
+	MODULES=$(bash ../tf4slurm/ModulesForRedHat7.5.sh $TENSORFLOW $PYTHON)
 fi
+
+echo "Here We go!!"
+module load $MODULES
 
 ##########################################################################
 #########For submitting LaunchTFServer_Hooke.py to queue system ##########

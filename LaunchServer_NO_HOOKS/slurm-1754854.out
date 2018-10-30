@@ -1,0 +1,72 @@
+TENSORFLOW: 10
+PYTHON: 
+REDHAT: 6.7
+tensorflow/1.7.0-python-2.7.14 unloaded 
+pip/9.0.1-python-2.7.14 unloaded 
+numpy/1.14.2-python-2.7.14 unloaded 
+setuptools/38.5.2-python-2.7.14 unloaded 
+python/2.7.14 unloaded 
+openssl/1.1.0g unloaded 
+libffi/3.2.1 unloaded 
+gmp/6.1.2 unloaded 
+tk/8.6.7 unloaded 
+x11/20180131 unloaded 
+fontconfig/2.12.6 unloaded 
+freetype/2.9 unloaded 
+libpng/1.6.34 unloaded 
+expat/2.2.5 unloaded 
+sqlite/3.22.0 unloaded 
+tcl/8.6.7 unloaded 
+libreadline/7.0 unloaded 
+ncurses/6.0 unloaded 
+zlib/1.2.11 unloaded 
+bzip2/1.0.6 unloaded 
+imkl/2018.2.199 unloaded 
+gcccore/6.4.0 unloaded 
+binutils/2.29.1 unloaded 
+gcc/6.4.0 unloaded 
+Here We go!!
+gcc/4.9.1 loaded 
+jdk/1.8.0 loaded 
+openssl/1.0.2f loaded 
+anaconda2/4.0.0 loaded 
+tensorflow/1.0.0 loaded 
+SLURM_NTASKS: 4
+SLURM_CPUS_PER_TASK: 6
+SLURM_NNODES: 1
+SLURM_NTASKS_PER_NODE: 4
+MEMPERCORE: 5120
+RAM-PER-TASK: 30720
+2: D1030 18:01:44.412604686    9483 env_linux.c:77]             Warning: insecure environment read function 'getenv' used
+0: D1030 18:01:44.412996083    9481 env_linux.c:77]             Warning: insecure environment read function 'getenv' used
+1: D1030 18:01:44.413019023    9482 env_linux.c:77]             Warning: insecure environment read function 'getenv' used
+3: D1030 18:01:44.413152008    9484 env_linux.c:77]             Warning: insecure environment read function 'getenv' used
+1: 2018-10-30 18:01:44.420622: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job ps -> {0 -> 172.28.71.47:13241}
+1: 2018-10-30 18:01:44.420644: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job worker -> {0 -> localhost:13242, 1 -> 172.28.71.47:13243, 2 -> 172.28.71.47:13244}
+0: 2018-10-30 18:01:44.420666: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job ps -> {0 -> localhost:13241}
+0: 2018-10-30 18:01:44.420682: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job worker -> {0 -> 172.28.71.47:13242, 1 -> 172.28.71.47:13243, 2 -> 172.28.71.47:13244}
+0: 2018-10-30 18:01:44.421106: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:239] Started server with target: grpc://localhost:13241
+1: 2018-10-30 18:01:44.421121: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:239] Started server with target: grpc://localhost:13242
+3: 2018-10-30 18:01:44.421255: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job ps -> {0 -> 172.28.71.47:13241}
+3: 2018-10-30 18:01:44.421277: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job worker -> {0 -> 172.28.71.47:13242, 1 -> 172.28.71.47:13243, 2 -> localhost:13244}
+2: 2018-10-30 18:01:44.421316: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job ps -> {0 -> 172.28.71.47:13241}
+2: 2018-10-30 18:01:44.421336: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:200] Initialize GrpcChannelCache for job worker -> {0 -> 172.28.71.47:13242, 1 -> localhost:13243, 2 -> 172.28.71.47:13244}
+3: 2018-10-30 18:01:44.421759: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:239] Started server with target: grpc://localhost:13244
+2: 2018-10-30 18:01:44.421809: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:239] Started server with target: grpc://localhost:13243
+1: Cluster Dictionary: {'ps': ['172.28.71.47:13241'], 'worker': ['172.28.71.47:13242', '172.28.71.47:13243', '172.28.71.47:13244']}
+1: worker 0
+1: grpc://localhost:13242
+1: I am worker and my id inside the worker list is: 0 and Network Address is: 172.28.71.47:13242
+2: Cluster Dictionary: {'ps': ['172.28.71.47:13241'], 'worker': ['172.28.71.47:13242', '172.28.71.47:13243', '172.28.71.47:13244']}
+2: worker 1
+2: grpc://localhost:13243
+2: I am worker and my id inside the worker list is: 1 and Network Address is: 172.28.71.47:13243
+3: Cluster Dictionary: {'ps': ['172.28.71.47:13241'], 'worker': ['172.28.71.47:13242', '172.28.71.47:13243', '172.28.71.47:13244']}
+3: worker 2
+3: grpc://localhost:13244
+3: I am worker and my id inside the worker list is: 2 and Network Address is: 172.28.71.47:13244
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: got SIGCONT
+0: slurmstepd: error: *** STEP 1754854.0 ON c7147 CANCELLED AT 2018-10-30T18:03:58 ***
+slurmstepd: error: *** JOB 1754854 ON c7147 CANCELLED AT 2018-10-30T18:03:58 ***
+srun: forcing job termination

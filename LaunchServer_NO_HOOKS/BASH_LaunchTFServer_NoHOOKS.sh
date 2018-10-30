@@ -7,7 +7,7 @@
 #SBATCH -t 00:05:00 #El tiempo maximo del trabajo es de 30 horas
 
 #SBATCH -p thinnodes
-# SBATCH -p cola-corta
+#SBATCH -p cola-corta
 # SBATCH -p thin-shared
 # SBATCH -p gpunodes
 # SBATCH -p iphinodes
@@ -28,18 +28,25 @@
 
 
 TENSORFLOW=$1
+echo "TENSORFLOW: "$TENSORFLOW
 PYTHON=$2
+echo "PYTHON: "$PYTHON 
 REDHAT=$(lsb_release -a | sed -n 's/Release:\t//p')
 echo "REDHAT: "$REDHAT
 
+# Limpio modulos
+module purge
+
 if [ $REDHAT = "6.7" ]
 then
-	bash ../tf4slurm/ModulesForRedHat6.7.sh
+	MODULES=$(bash ../tf4slurm/ModulesForRedHat6.7.sh $TENSORFLOW $PYTHON)
 
 else
-	bash ../tf4slurm/ModulesForRedHat7.5.sh 
+	MODULES=$(bash ../tf4slurm/ModulesForRedHat7.5.sh $TENSORFLOW $PYTHON)
 fi
 
+echo "Here We go!!"
+module load $MODULES
 
 
 ##########################################################################

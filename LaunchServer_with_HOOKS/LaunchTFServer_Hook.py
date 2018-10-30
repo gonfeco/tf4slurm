@@ -5,8 +5,8 @@ import os
 import tensorflow as tf
 import sys
 sys.path.append("../")
-import tf_for_slurm.ServerDictionary as ServerDictionary
-import tf_for_slurm.DistributedTFQueueHook as QueueHook
+import tf4slurm.ServerDictionary as ServerDictionary
+import tf4slurm.DistributedTFQueueHook as QueueHook
 import SleepExample as SE
 ###########################################################################
 ########This scripts shows an example of use of the tf_sfor_slurm##########

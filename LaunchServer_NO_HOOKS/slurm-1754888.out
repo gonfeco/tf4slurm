@@ -1,0 +1,90 @@
+TENSORFLOW: 17
+PYTHON: 2
+REDHAT: 6.7
+tensorflow/1.7.0-python-2.7.14 unloaded 
+pip/9.0.1-python-2.7.14 unloaded 
+numpy/1.14.2-python-2.7.14 unloaded 
+setuptools/38.5.2-python-2.7.14 unloaded 
+python/2.7.14 unloaded 
+openssl/1.1.0g unloaded 
+libffi/3.2.1 unloaded 
+gmp/6.1.2 unloaded 
+tk/8.6.7 unloaded 
+x11/20180131 unloaded 
+fontconfig/2.12.6 unloaded 
+freetype/2.9 unloaded 
+libpng/1.6.34 unloaded 
+expat/2.2.5 unloaded 
+sqlite/3.22.0 unloaded 
+tcl/8.6.7 unloaded 
+libreadline/7.0 unloaded 
+ncurses/6.0 unloaded 
+zlib/1.2.11 unloaded 
+bzip2/1.0.6 unloaded 
+imkl/2018.2.199 unloaded 
+gcccore/6.4.0 unloaded 
+binutils/2.29.1 unloaded 
+gcc/6.4.0 unloaded 
+Here We go!!
+gcccore/6.4.0 loaded 
+binutils/2.29.1 loaded 
+gcc/6.4.0 loaded 
+imkl/2018.2.199 loaded 
+bzip2/1.0.6 loaded 
+zlib/1.2.11 loaded 
+ncurses/6.0 loaded 
+libreadline/7.0 loaded 
+tcl/8.6.7 loaded 
+sqlite/3.22.0 loaded 
+expat/2.2.5 loaded 
+libpng/1.6.34 loaded 
+freetype/2.9 loaded 
+fontconfig/2.12.6 loaded 
+x11/20180131 loaded 
+tk/8.6.7 loaded 
+gmp/6.1.2 loaded 
+libffi/3.2.1 loaded 
+openssl/1.1.0g loaded 
+python/2.7.14 loaded 
+setuptools/38.5.2-python-2.7.14 loaded 
+numpy/1.14.2-python-2.7.14 loaded 
+pip/9.0.1-python-2.7.14 loaded 
+tensorflow/1.7.0-python-2.7.14 loaded 
+SLURM_NTASKS: 4
+SLURM_CPUS_PER_TASK: 6
+SLURM_NNODES: 1
+SLURM_NTASKS_PER_NODE: 4
+MEMPERCORE: 5120
+RAM-PER-TASK: 30720
+2: 2018-10-30 18:06:19.607883: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job ps -> {0 -> 172.28.71.47:13265}
+2: 2018-10-30 18:06:19.607905: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job worker -> {0 -> 172.28.71.47:13266, 1 -> localhost:13267, 2 -> 172.28.71.47:13268}
+3: 2018-10-30 18:06:19.607867: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job ps -> {0 -> 172.28.71.47:13265}
+3: 2018-10-30 18:06:19.607893: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job worker -> {0 -> 172.28.71.47:13266, 1 -> 172.28.71.47:13267, 2 -> localhost:13268}
+0: 2018-10-30 18:06:19.607991: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job ps -> {0 -> localhost:13265}
+0: 2018-10-30 18:06:19.608016: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job worker -> {0 -> 172.28.71.47:13266, 1 -> 172.28.71.47:13267, 2 -> 172.28.71.47:13268}
+1: 2018-10-30 18:06:19.608035: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job ps -> {0 -> 172.28.71.47:13265}
+1: 2018-10-30 18:06:19.608057: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:215] Initialize GrpcChannelCache for job worker -> {0 -> localhost:13266, 1 -> 172.28.71.47:13267, 2 -> 172.28.71.47:13268}
+3: 2018-10-30 18:06:19.608508: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:333] Started server with target: grpc://localhost:13268
+2: 2018-10-30 18:06:19.608562: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:333] Started server with target: grpc://localhost:13267
+0: 2018-10-30 18:06:19.608634: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:333] Started server with target: grpc://localhost:13265
+1: 2018-10-30 18:06:19.608668: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:333] Started server with target: grpc://localhost:13266
+1: I am in Branch Version!!!
+1: Cluster Dictionary: {'ps': ['172.28.71.47:13265'], 'worker': ['172.28.71.47:13266', '172.28.71.47:13267', '172.28.71.47:13268']}
+1: worker 0
+1: grpc://localhost:13266
+1: I am worker and my id inside the worker list is: 0 and Network Address is: 172.28.71.47:13266
+3: I am in Branch Version!!!
+3: Cluster Dictionary: {'ps': ['172.28.71.47:13265'], 'worker': ['172.28.71.47:13266', '172.28.71.47:13267', '172.28.71.47:13268']}
+3: worker 2
+3: grpc://localhost:13268
+3: I am worker and my id inside the worker list is: 2 and Network Address is: 172.28.71.47:13268
+2: I am in Branch Version!!!
+2: Cluster Dictionary: {'ps': ['172.28.71.47:13265'], 'worker': ['172.28.71.47:13266', '172.28.71.47:13267', '172.28.71.47:13268']}
+2: worker 1
+2: grpc://localhost:13267
+2: I am worker and my id inside the worker list is: 1 and Network Address is: 172.28.71.47:13267
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: got SIGCONT
+0: slurmstepd: error: *** STEP 1754888.0 ON c7147 CANCELLED AT 2018-10-30T18:07:46 ***
+slurmstepd: error: *** JOB 1754888 ON c7147 CANCELLED AT 2018-10-30T18:07:46 ***
+srun: forcing job termination
