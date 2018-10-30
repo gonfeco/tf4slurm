@@ -5,6 +5,7 @@ import sys
 import time
 import os
 import tensorflow as tf
+sys.path.append("../")
 import tf_for_slurm.ServerDictionary as ServerDictionary
 
 ###########################################################################

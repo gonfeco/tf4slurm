@@ -4,6 +4,7 @@ import argparse
 import os
 import tensorflow as tf
 import sys
+sys.path.append("../")
 import tf_for_slurm.ServerDictionary as ServerDictionary
 import tf_for_slurm.DistributedTFQueueHook as QueueHook
 import SleepExample as SE
