@@ -29,46 +29,36 @@
 
 TENSORFLOW=$1
 PYTHON=$2
+REDHAT=$(lsb_release -a | sed -n 's/Release:\t//p')
+echo "REDHAT: "$REDHAT
 
-# Limpio modulos
-module purge
-case $TENSORFLOW in 
-	10)
-		module load gcc/4.9.1 tensorflow/1.0.0
-	;;
-	12)
-		module load gcc/4.9.1 tensorflow/1.2.1
-	;;
-	13)
-		module load gcc/4.9.1 tensorflow/1.3.1
-	;;
-	17)
-	if [ "$PYTHON" = 2 ]
-	then
-		module load gcc/6.4.0 tensorflow/1.7.0-python-2.7.14
-	elif [ "$PYTHON" = 3 ]
-	then
-		module load gcc/6.4.0 tensorflow/1.7.0-python-3.6.5
-		export PYTHONPATH="/opt/cesga/job-scripts-examples/TensorFlow/Distributed:"$PYTHONPATH
-	else
-		echo "TF 17 will be used. Python Version not provided. Python 2 will be used"
-		module load gcc/6.4.0 tensorflow/1.7.0-python-2.7.14
+if [ $REDHAT = "6.7" ]
+then
+	bash ../../tf4slurm/ModulesForRedHat6.7.sh
 
-	fi
-	;;
-	*)
-		echo "Not selected TensorFlow Version. v 1.7.0 and Python 2.7.14 will be used!!!"
-		module load gcc/6.4.0 tensorflow/1.7.0-python-2.7.14
-esac
+else
+	bash ../../tf4slurm/ModulesForRedHat7.5.sh 
+fi
 
 ##########################################################################
-#########For submitting LaunchTFServer_Hooke.py to queue system ##########
+#########For submitting LaunchTFServer.py to queue system ################
 ##########################################################################
 
 echo SLURM_NTASKS: $SLURM_NTASKS  
 echo SLURM_CPUS_PER_TASK: $SLURM_CPUS_PER_TASK 
 echo SLURM_NNODES: $SLURM_NNODES
 echo SLURM_NTASKS_PER_NODE: $SLURM_NTASKS_PER_NODE
+#Memory Calculations.
+#For shared partitions
+MEMPERCORE=$(eval $(scontrol show partition $SLURM_JOB_PARTITION -o);echo $DefMemPerCPU)
+if [ -z "$MEMPERCORE" ]
+  then
+  #exclusive partitions
+  MEMPERCORE=$(( $(sinfo -e -p $SLURM_JOB_PARTITION -o "%m/%c" -h) ))
+fi
+echo MEMPERCORE: $MEMPERCORE
+MEMPERTASK=$(( $MEMPERCORE*$SLURM_CPUS_PER_TASK )) 
+echo "RAM-PER-TASK: "$MEMPERTASK
 
 MEMORY=10G
 DATA_DIR=./MNIST_DATA_TF_$TENSORFLOW"_PYTHON_"$PYTHON

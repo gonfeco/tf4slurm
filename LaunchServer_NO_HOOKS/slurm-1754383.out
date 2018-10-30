@@ -1,0 +1,30 @@
+REDHAT: 6.7
+bash: ModulesForRedHat6.7.sh: No existe el fichero o el directorio
+SLURM_NTASKS: 4
+SLURM_CPUS_PER_TASK: 6
+SLURM_NNODES: 1
+SLURM_NTASKS_PER_NODE: 4
+MEMPERCORE: 5120
+RAM-PER-TASK: 30720
+0: Traceback (most recent call last):
+0:   File "./LaunchTFServer_NoHOOKS.py", line 7, in <module>
+1: Traceback (most recent call last):
+1:   File "./LaunchTFServer_NoHOOKS.py", line 7, in <module>
+2: Traceback (most recent call last):
+2:   File "./LaunchTFServer_NoHOOKS.py", line 7, in <module>
+3: Traceback (most recent call last):
+3:   File "./LaunchTFServer_NoHOOKS.py", line 7, in <module>
+0:     import tensorflow as tf
+0: ImportError: No module named tensorflow
+1:     import tensorflow as tf
+1: ImportError
+2:     import tensorflow as tf
+3:     import tensorflow as tf
+0: 
+1: : No module named tensorflow
+3: ImportError: 
+2: ImportError: 
+3: No module named tensorflow
+2: No module named tensorflow
+srun: error: c6648: tasks 0-3: Exited with exit code 1
+srun: Terminating job step 1754383.0
