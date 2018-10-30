@@ -41,6 +41,7 @@ This module defines the clase QueueManagementHook (based on tf.train.SessionRunH
 This solution creates a TF Queues on all the parameter servers ("ps") and the "ps" session try to dequeue them. Meanwhile the Queue is empty this operation blocks the "ps" server. In the "worker" the Hook of the script is created and when the training operation is finished the hook fills the "ps" queues. When "ps" queue are filled the dequeue operation can be finished and the "ps" can be closed gracefully.
 
 Additionally 2 more bash scripts are included that are used by the submitting scripts (see LaunchServer_NO_HOOKS and LaunchServer_NO_HOOKS) to configure the modules into the FT2:
+
 	*ModulesForRedHat6.7.sh
 	*ModulesForRedHat7.5.sh
 
