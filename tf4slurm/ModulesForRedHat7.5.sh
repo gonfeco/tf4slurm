@@ -7,29 +7,30 @@ TENSORFLOW=17
 module purge
 case $TENSORFLOW in 
 	10)
-		module load gcc/4.9.1 tensorflow/1.0.0
+		MODULES="gcc/4.9.1 tensorflow/1.0.0"
 	;;
 	12)
-		module load gcc/4.9.1 tensorflow/1.2.1
+		MODULES="gcc/4.9.1 tensorflow/1.2.1"
 	;;
 	13)
-		module load gcc/4.9.1 tensorflow/1.3.1
+		MODULES="gcc/4.9.1 tensorflow/1.3.1"
 	;;
 	17)
 	if [ "$PYTHON" = 2 ]
 	then
-		module load gcc/6.4.0 tensorflow/1.7.0-python-2.7.15
+		MODULES="gcc/6.4.0 tensorflow/1.7.0-python-2.7.15"
 	elif [ "$PYTHON" = 3 ]
 	then
-		module load gcc/6.4.0 tensorflow/1.7.0-python-3.7.0
-		export PYTHONPATH="/opt/cesga/job-scripts-examples/TensorFlow/Distributed:"$PYTHONPATH
+		MODULES="gcc/6.4.0 tensorflow/1.7.0-python-3.7.0"
+		#export PYTHONPATH="/opt/cesga/job-scripts-examples/TensorFlow/Distributed:"$PYTHONPATH
 	else
-		echo "TF 17 will be used. Python Version not provided. Python 2 will be used"
-		module load gcc/6.4.0 tensorflow/1.7.0-python-2.7.15
+		#echo "TF 17 will be used. Python Version not provided. Python 2 will be used"
+		MODULES="gcc/6.4.0 tensorflow/1.7.0-python-2.7.15"
 
 	fi
 	;;
 	*)
-		echo "Not selected TensorFlow Version. v 1.7.0 and Python 2.7.14 will be used!!!"
-		module load gcc/6.4.0 tensorflow/1.7.0-python-2.7.15
+		#echo "Not selected TensorFlow Version. v 1.7.0 and Python 2.7.14 will be used!!!"
+		MODULES="gcc/6.4.0 tensorflow/1.7.0-python-2.7.15"
 esac
+echo $MODULES
