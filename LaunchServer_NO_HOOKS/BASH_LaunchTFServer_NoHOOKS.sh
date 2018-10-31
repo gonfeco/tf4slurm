@@ -7,7 +7,7 @@
 #SBATCH -t 00:05:00 #El tiempo maximo del trabajo es de 30 horas
 
 #SBATCH -p thinnodes
-#SBATCH -p cola-corta
+# SBATCH -p cola-corta
 # SBATCH -p thin-shared
 # SBATCH -p gpunodes
 # SBATCH -p iphinodes
