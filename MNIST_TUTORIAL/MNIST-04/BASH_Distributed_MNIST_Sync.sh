@@ -77,6 +77,9 @@ DATA_DIR=./MNIST_DATA_TF_$TENSORFLOW"_PYTHON_"$PYTHON
 MODEL_DIR=./DISTRIBUTED_MONITORED_SYNC_TF_$TENSORFLOW"_PYTHON_"$PYTHON
 BATCH_SIZE=60
 MAX_STEPS=1000
+#See https://github.com/tensorflow/models/issues/3788 to avoid
+#tensorflow.python.framework.errors_impl.UnavailableError: OS Error
+export GRPC_POLL_STRATEGY="poll"
 
 srun -n $SLURM_NTASKS -c $SLURM_CPUS_PER_TASK  --mem $MEMORY  --resv-ports=$SLURM_NTASKS_PER_NODE -l python LaunchTFServerWithHooks.py -ps $PS -workers $WORKERS --data_dir $DATA_DIR --model_dir $MODEL_DIR -batch_size $BATCH_SIZE -Iterations $MAX_STEPS --NoIB  
 

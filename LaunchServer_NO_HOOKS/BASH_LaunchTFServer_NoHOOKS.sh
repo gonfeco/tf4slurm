@@ -71,6 +71,9 @@ echo "RAM-PER-TASK: "$MEMPERTASK
 
 PS=1
 WORKERS=$((SLURM_NTASKS-PS))
+#See https://github.com/tensorflow/models/issues/3788 to avoid
+#tensorflow.python.framework.errors_impl.UnavailableError: OS Error
+export GRPC_POLL_STRATEGY="poll"
 
 srun -n $SLURM_NTASKS -c $SLURM_CPUS_PER_TASK  --mem $MEMPERTASK --resv-ports=$SLURM_NTASKS_PER_NODE -l python ./LaunchTFServer_NoHOOKS.py -ps $PS -workers $WORKERS 
 
