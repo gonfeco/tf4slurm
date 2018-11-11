@@ -20,7 +20,6 @@ if __name__ == "__main__":
 	parser=argparse.ArgumentParser()
 	parser.add_argument('-ps', type=int, default=1, help='Number of Parameter Servers.')
 	parser.add_argument('-workers', type=int, default=3, help='Number of Workers.')
-	parser.add_argument('--NoIB', default=True,action="store_false", help='No use Infini Band.')
 
 	FLAGS, unparsed = parser.parse_known_args()
 	NumberOfPS=FLAGS.ps
@@ -28,10 +27,7 @@ if __name__ == "__main__":
 	ListOfTFTasks=['worker' for i in range(NumberOfPS+NumberOfWorkers)]
 	for i in range(NumberOfPS):
 		ListOfTFTasks[i]='ps'
-	ServerDictionary,task_type,task_index=ServerDictionary.GetServerDictionary(
-		ListOfTFTasks,
-		InfinyBand=FLAGS.NoIB
-	)
+	ServerDictionary,task_type,task_index=ServerDictionary.GetServerDictionary(ListOfTFTasks)
 	print("Cluster Dictionary: "+str(ServerDictionary))
 	print(task_type,task_index)
 	cluster = tf.train.ClusterSpec(ServerDictionary)

@@ -75,6 +75,7 @@ def TestNumberOfTasks(TensorFlowServerTasks):
 		pass
 	return 0
 
+"""
 def GetNodesIPs():
 	#Get Nodes
 	NODESEnv=LookInEnvironment("SLURM_STEP_NODELIST")
@@ -87,6 +88,16 @@ def GetNodesIPs():
 	IPs=SNodes.split(',')
 	#print IPs
 	return IPs
+"""
+
+def GetNodesIPs():
+	#Get Nodes
+	NODESEnv=str(LookInEnvironment("TFSERVER"))
+	print("NODESEnv: ")+NODESEnv
+	NODESEnv=NODESEnv.split('\n')
+	print("NODESEnv: ")+NODESEnv
+	return NODESEnv
+
 
 def GetCommunicationPorts(): 
 	#Get Ports
@@ -125,27 +136,22 @@ def CreateDictionary4Server(TensorFlowServerTasks,ListOfNodesPorts):
 	#print(DictionaryServer)
 	return DictionaryServer
 
-def GetServerDictionary(ListOfTFTasks,InfinyBand=True):
+def GetServerDictionary(ListOfTFTasks):
 	"""
 	This is the WorkFlow for the script:
 	Inputs:
-		TensorFlowServerTasks: list of string. Each element should be 'ps' or 'worker'.
-		InfinyBand= Boolean. True->use InfinyBand. False->use Ethernet.
+		ListOfTFTasks: list of string. Each element should be 'ps' or 'worker'.
 	Outputs:
 		DictionaryServer: Server Dictionary for create Distributed TF server.
 			keys:('ps', 'worker'). values: List with Network Addresses of the machines used for Distributed TF server.
 		TypeOfTask: string.It can be: 'ps' or 'worker' depending of the type of TF task of the local machine.
 		TypeOfTaskIndex:integer.Specify the index of the local machine in the Network Addresses List of its correspondent task.
 	"""
-	print("I am in Branch Version!!!")
+	print("I am new version with getting IPs!!!")
 	#Test Number of Tasks
 	TestNumberOfTasks(ListOfTFTasks)
 	#Get List with Nodes IP
 	ListOfIPs=GetNodesIPs()
-	#Get Ifiny Band IP
-	if (InfinyBand == True):
-		ListOfIPs=GetInfiniBandIp(ListOfIPs)
-	#print IPs
 	#Get List with Communication Ports
 	ListOfPorts=GetCommunicationPorts()
 	#Combine Ips and Ports with correct Distributed TF server.

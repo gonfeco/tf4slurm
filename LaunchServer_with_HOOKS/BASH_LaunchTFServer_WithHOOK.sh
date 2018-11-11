@@ -67,11 +67,27 @@ echo MEMPERCORE: $MEMPERCORE
 MEMPERTASK=$(( $MEMPERCORE*$SLURM_CPUS_PER_TASK )) 
 echo "RAM-PER-TASK: "$MEMPERTASK
 
-PS=1
-WORKERS=$((SLURM_NTASKS-PS))
+#Here The IPs of the nodes allocated for job are obtained and wrote to the environment variable TFSERVER
+########################################################################################################
+IB="NoIB"
+export TFSERVER=""
+if [ $IB = "NoIB" ]
+  then
+  #Get the IPs of all nodes of the allocated job. Ethernet IPs
+  TFSERVER=$(srun -n $SLURM_NNODES --ntasks-per-node=1 ../tf4slurm/Wraper_NoIB.sh)
+  else
+  #Get the IPs of all nodes of the allocated job. Infiny Band IPs
+  TFSERVER=$(srun -n $SLURM_NNODES --ntasks-per-node=1 ../tf4slurm/Wraper_IB.sh)
+fi
+echo $TFSERVER
+########################################################################################################
+
 #See https://github.com/tensorflow/models/issues/3788 to avoid
 #tensorflow.python.framework.errors_impl.UnavailableError: OS Error
 export GRPC_POLL_STRATEGY="poll"
+
+PS=1
+WORKERS=$((SLURM_NTASKS-PS))
 
 srun -n $SLURM_NTASKS -c $SLURM_CPUS_PER_TASK  --mem $MEMPERTASK --resv-ports=$SLURM_NTASKS_PER_NODE -l python ./LaunchTFServer_Hook.py -ps $PS -workers $WORKERS 
 
