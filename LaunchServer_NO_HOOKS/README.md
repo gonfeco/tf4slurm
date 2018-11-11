@@ -31,7 +31,7 @@ This script creates a dsitributed TF server using ServerDictionary module. Impor
 				EXAMPLE: Number of Nodes=2. Task/pernode=4. Number of Total Tasks: 2*4=8. So If user wants PS=2:
 				EXAMPLE-1: ['ps','ps', 'worker', 'worker', 'worker', 'worker', 'worker', 'worker'] -> The PSs will be in the first Node!!
 				EXAMPLE-2: ['ps', 'worker', 'worker', 'worker','ps', 'worker', 'worker', 'worker'] -> One PS in first node other ps in second node.
-	-lines 30-33: This is the call to the GetServerDictionary() function from the ServerDictionary module.Here each task gets:
+	-lines 30-32: This is the call to the GetServerDictionary() function from the ServerDictionary module.Here each task gets:
 		*ServerDictionary: python dictionary to create the Distributed TF server dictionary.
 		*(task_type,task_index): identification of the machine in the ServerDictionary:
 			+task_type: "ps" or "worker".
@@ -57,4 +57,12 @@ This script submits the pyhton script to CESGA Finis Terrae II Slurm system. Use
 	sbatch BASH_LaunchTFServer_NoHOOKS.sh 17 -> use TensorFlow v1.7.0 and Python 2.7.14
 	sbatch BASH_LaunchTFServer_NoHOOKS.sh 17 2 -> use TensorFlow v1.7.0 and Python 2.7.14
 	sbatch BASH_LaunchTFServer_NoHOOKS.sh 17 3 -> use TensorFlow v1.7.0 and Python 3.6.5
+
+Important parts:
+
+	*Lines: 29-50: This lines configure the modules to load for use TF using the argument options as showed before. Dependng on the OS the bash scripts: ModulesForRedHat6.7.sh or ModulesForRedHat7.5.sh are used and different versions of TF are used.
+	*Lines: 72-88: These are very important lines. Depending if user want to use IB or not the wrapers scripts (Wraper_NoIB.sh or Wraper_IB.sh) are submmited to the system to obtain the IP of all the nodes allocated for distributed training.     
+	*Line 97: submmit to the queue the LaunchTFServer_NoHOOKS.py scripts that create de Distributed TF Server.   
+
+
 **************************************************************************************************************************

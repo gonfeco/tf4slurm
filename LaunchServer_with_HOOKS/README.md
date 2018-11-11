@@ -80,6 +80,12 @@ This script submits the pyhton script to CESGA Finis Terrae II Slurm system. Use
 	sbatch BASH_LaunchTFServer_WithHOOK.sh 17 2 -> use TensorFlow v1.7.0 and Python 2.7.14
 	sbatch BASH_LaunchTFServer_WithHOOK.sh 17 3 -> use TensorFlow v1.7.0 and Python 3.6.5
 
+Important parts:
 
+	*Lines: 29-50: This lines configure the modules to load for use TF using the argument options as showed before. Dependng on the OS the bash scripts: ModulesForRedHat6.7.sh or ModulesForRedHat7.5.sh are used and different versions of TF are used.
+	*Lines: 72-88: These are very important lines. Depending if user want to use IB or not the wrapers scripts (Wraper_NoIB.sh or Wraper_IB.sh) are submmited to the system to obtain the IP of all the nodes allocated for distributed training.     
+	*Line 97: submmit to the queue the LaunchTFServer_NoHOOKS.py scripts that create de Distributed TF Server.   
+
+**************************************************************************************************************************
 
 
