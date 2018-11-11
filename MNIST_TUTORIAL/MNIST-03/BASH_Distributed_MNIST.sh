@@ -7,7 +7,7 @@
 #SBATCH -t 00:05:00 #El tiempo maximo del trabajo es de 30 horas
 
 #SBATCH -p thinnodes
-# SBATCH -p cola-corta
+#SBATCH -p cola-corta
 # SBATCH -p thin-shared
 # SBATCH -p gpunodes
 # SBATCH -p iphinodes
@@ -35,13 +35,14 @@ echo "REDHAT: "$REDHAT
 
 # Limpio modulos
 module purge
+PATHTOPACKAGE="../../tf4slurm"
 
 if [ $REDHAT = "6.7" ]
 then
-	MODULES=$(bash ../tf4slurm/ModulesForRedHat6.7.sh $TENSORFLOW $PYTHON)
+	MODULES=$(bash $PATHTOPACKAGE/ModulesForRedHat6.7.sh $TENSORFLOW $PYTHON)
 
 else
-	MODULES=$(bash ../tf4slurm/ModulesForRedHat7.5.sh $TENSORFLOW $PYTHON)
+	MODULES=$(bash $PATHTOPACKAGE/ModulesForRedHat7.5.sh $TENSORFLOW $PYTHON)
 fi
 
 echo "Here We go!!"
@@ -76,10 +77,10 @@ export TFSERVER=""
 if [ $IB = "NoIB" ]
   then
   #Get the IPs of all nodes of the allocated job. Ethernet IPs
-  TFSERVER=$(srun -n $SLURM_NNODES --ntasks-per-node=1 ../../tf4slurm/Wraper_NoIB.sh)
+  TFSERVER=$(srun -n $SLURM_NNODES --ntasks-per-node=1 $PATHTOPACKAGE/Wraper_NoIB.sh)
   else
   #Get the IPs of all nodes of the allocated job. Infiny Band IPs
-  TFSERVER=$(srun -n $SLURM_NNODES --ntasks-per-node=1 ../../tf4slurm/Wraper_IB.sh)
+  TFSERVER=$(srun -n $SLURM_NNODES --ntasks-per-node=1 $PATHTOPACKAGE/Wraper_IB.sh)
 fi
 echo $TFSERVER
 ########################################################################################################
