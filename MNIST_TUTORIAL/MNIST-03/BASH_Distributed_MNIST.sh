@@ -72,6 +72,11 @@ MEMORY=$MEMPERTASK
 
 #Here The IPs of the nodes allocated for job are obtained and wrote to the environment variable TFSERVER
 ########################################################################################################
+IB="IB"
+#For No IB use:
+#IB="NoIB"
+
+export TFSERVER=""
 IB="NoIB"
 export TFSERVER=""
 if [ $IB = "NoIB" ]
