@@ -49,11 +49,11 @@ Additionally 2 more bash scripts are included that are used by the submitting sc
 
 LaunchServer_NO_HOOKS.
 
-This folder contains all the scripts (python and bash scripts) to submit a typical Distributed TF server to FT2. Only uses the: ServerDictionary module from tf4slurm package. This example creates the TF server with "ps" and the "workers". The "ps" server will run forever until user o queue system kills the job. Folder contains a README with a detailed explanation of the scripts.
+This folder contains all the scripts (python and bash scripts) to submit a typical Distributed TF server to FT2. Only uses the: ServerDictionary module from tf4slurm package. This example creates the TF server with "ps" and the "workers". The "ps" server will run forever until user o queue system kills the job. Folder contains a README with a detailed explanation of the scripts. Users can use the scripts of this folder for submitting their jobs by adding their code to the end of LaunchTFServer_NoHOOKS.py under the elif block.
 
 LaunchServer_with_HOOK.
 
-This folder contains all the scripts (python and bash scriprs) to submit the Distributed TF server with the Yaroslav Bulatov solution to FT2. Both package modules (ServerDictionary and DistributedTFQueueHook) are needed. The example creates the server and the when the workers finished their job the "ps" server is closed and the job will be finished. Folder contains a README with a detailed explanation of the scripts
+This folder contains all the scripts (python and bash scriprs) to submit the Distributed TF server with the Yaroslav Bulatov solution to FT2. Both package modules (ServerDictionary and DistributedTFQueueHook) are needed. The example creates the server and the when the workers finished their job the "ps" server is closed and the job will be finished. Folder contains a README with a detailed explanation of the scripts. Users can use the scripts of this folder for submitting their jobs by adding their code to the end of LaunchTFServer_with_HOOKS.py under the elif block. Users should remember to include the QueueHook in the call of their function.
 
 
 MNIST_TUTORIAL
