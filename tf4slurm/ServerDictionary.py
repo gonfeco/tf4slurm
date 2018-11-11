@@ -92,12 +92,11 @@ def GetNodesIPs():
 
 def GetNodesIPs():
 	#Get Nodes
-	NODESEnv=str(LookInEnvironment("TFSERVER"))
-	print("NODESEnv: ")+NODESEnv
-	NODESEnv=NODESEnv.split('\n')
-	print("NODESEnv: ")+NODESEnv
-	return NODESEnv
-
+	NODESEnv=LookInEnvironment("TFSERVER")
+	#print(NODESEnv)
+	NodesIPs=NODESEnv.split('\n')
+	#print(NodesIPs)
+	return NodesIPs
 
 def GetCommunicationPorts(): 
 	#Get Ports
