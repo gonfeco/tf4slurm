@@ -46,7 +46,6 @@ if __name__ == '__main__':
 	for i in range(NumberOfPS):
 		ListOfTFTasks[i]='ps'
 	print(ListOfTFTasks)
-	print(FLAGS.NoIB)
 	ServerDictionary,task_type,task_index=ServerDictionary.GetServerDictionary(ListOfTFTasks)
 	print("Cluster Dictionary: "+str(ServerDictionary))
 	print(task_type,task_index)
