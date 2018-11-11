@@ -20,11 +20,10 @@ capabilities of TensorFlow in a Slurm queue system. There are two different modu
 
 ServerDictionary
 
-All the basic functions to build the ServerDictionary for a Distributed TF Server are provided. When a Distributed TF training is required all the machines involved in the training need to load the "GetServerDictionary()" function of this script. This function needs two inputs:
+All the basic functions to build the ServerDictionary for a Distributed TF Server are provided. When a Distributed TF training is required all the machines involved in the training need to load the "GetServerDictionary()" function of this script. This function needs following input:
 
 	*TensorFlowServerTasks: List of strings: Lenght of list = number of machines. Each element should be "ps" o "worker".
   
-	*InfiniBand: True (if infiniband is used). False (communincations through ethernet). This is a custom option for CESGA Finis Terrae 2 system. You should check IP InfiniBand configuration of your system. 
   
 The ouputs of the function are:
 
@@ -40,10 +39,18 @@ This module defines the clase QueueManagementHook (based on tf.train.SessionRunH
 		
 This solution creates a TF Queues on all the parameter servers ("ps") and the "ps" session try to dequeue them. Meanwhile the Queue is empty this operation blocks the "ps" server. In the "worker" the Hook of the script is created and when the training operation is finished the hook fills the "ps" queues. When "ps" queue are filled the dequeue operation can be finished and the "ps" can be closed gracefully.
 
-Additionally 2 more bash scripts are included that are used by the submitting scripts (see LaunchServer_NO_HOOKS and LaunchServer_NO_HOOKS) to configure the modules into the FT2:
+2 bash scripts are included that are used by the submitting scripts (see LaunchServer_NO_HOOKS and LaunchServer_NO_HOOKS) to configure the modules into the FT2:
 
 	*ModulesForRedHat6.7.sh
 	*ModulesForRedHat7.5.sh
+
+2 wraper scripts are included that are used for getting the IPs of the allocated nodes:
+
+	*Wraper_NoIB.sh: Get the Ethernet IP addresses.
+	*Wraper_IB.sh: Get Infini Band IP addresses.
+
+These scritps must be called in the submision bash script before submit the TensorFlow code. The scripts get the IPs and write the them to an environment variable. This variable is readed in the ServerDictionary.py script for creating the TF Dictionary serer..In the LaunchServer_NO_HOOKS and LaunchServer_with_HOOKS the submitting bash scripts show how to use this scripts. 
+
 
 **************************************************************************************************
 
