@@ -77,8 +77,6 @@ IB="IB"
 #IB="NoIB"
 
 export TFSERVER=""
-IB="NoIB"
-export TFSERVER=""
 if [ $IB = "NoIB" ]
   then
   #Get the IPs of all nodes of the allocated job. Ethernet IPs
