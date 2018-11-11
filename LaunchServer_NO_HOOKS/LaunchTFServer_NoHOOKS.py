@@ -46,3 +46,7 @@ if __name__ == "__main__":
 		server.join()
 	elif task_type == "worker":
 		pass
+		##########################################################################
+		#Put your code here or call your function with model and training. 
+		#To see an example see MNIST_TUTORIAL   
+		##########################################################################

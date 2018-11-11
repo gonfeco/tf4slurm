@@ -47,4 +47,8 @@ if __name__ == "__main__":
 		session_ps.close()
 	elif task_type  == "worker":
 		QueueHook=QueueHook.QueueManagementHook(NumberOfPS=NumberOfPS,NumberOfWorkers=NumberOfWorkers)
+		##########################################################################
+		#Put your code here or call your function with model and training. Remember to get the QueueuHook. 
+		#To see an example see MNIST_TUTORIAL   
+		##########################################################################
 		SE.SleepExample(task_index, TFCluster=cluster, TFServer=server, QueueHook=QueueHook)
